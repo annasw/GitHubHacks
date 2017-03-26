@@ -25,17 +25,6 @@ def hasContributedToday(profile_name):
 	except:
 		return False
 
-# debugging method. takes a profile name and
-# returns # of contributions today
-def numContributionsToday(profile):
-	try:
-		r = requests.get('https://github.com/'+profile)
-		rVal = r.text.rfind('x="-39" y="72"')
-		s = r.text[rVal + 42]
-		return int(s)
-	except:
-		return "Not a real profile"
-
 # checks my profile.
 if __name__ == '__main__':
 	print hasContributedToday('jsperlingwhite')
