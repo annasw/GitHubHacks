@@ -11,6 +11,9 @@ My script will eventually do the following:
 7. And do all this checking once a day, whether as a Daemon (or the Windows equivalent) or through some process that executes the script once a day.
 
 So far I have functionality for 1 (hasContributedToday(profile_name)) and 2 (currentEulers()), and I'm finishing up the code for 3 and 4 on my computer.
+
 (5) is going to be tricky; I'm not sure if the requests module has the functionality to let me upload files to GitHub, and if not I'll have to find a different module for it.
+
 (6) is also going to be a little tricky, mostly because my local projecteuler folder is pretty disorganized. I'll probably rename the relevant non-.py files to have the name of the euler problem, which should make it pretty trivial.
+
 (7) is weird. I don't have an approach to this, despite quite a bit of research. Annoyingly, there are tons of Daemon implementations for Unix/Linux systems, but none that I can find (except weird built-in Windows ones) for the OS that 91.76% of all computers users run. But I'm sure it's out there.
