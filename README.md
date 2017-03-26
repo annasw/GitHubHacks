@@ -1,8 +1,16 @@
 # GithubHacks
-My attempts to make GitHub work better for me.
+My attempts to make GitHub work better for me. So far this is just a script to try to ensure that my grid of little squares turns green.
 
-I want to be able to
-1. Check if I've contributed something to GitHub today, and if so, do nothing further;
-2. If I haven't, I want to either send myself a reminder, or upload a file to GitHub
+My script will eventually do the following:
+1. Check whether I have uploaded anything to GitHub today (and if so do nothing further);
+2. Check which ProjectEuler solutions I've uploaded to my GitHub;
+3. Get a list of ProjectEuler (.py) solutions in the directory on my computer;
+4. Compare the two to get a list of solutions on my computer but not GitHub;
+5. Pick one and upload it to GitHub...
+6. Preferably with whatever associated files (.txt, e.g.) it needs to work;
+7. And do all this checking once a day, whether as a Daemon (or the Windows equivalent) or through some process that executes the script once a day.
 
-So far I have a script that can get on my GitHub and check, accurately, whether I've contributed something today. What it CAN'T do is either option for #2 (which is fairly easy to implement, at least the first option), or check continuously every day (because I can't figure out how to get a Daemon, or whatever the Windows equivalent is, to run on Windows. All the resources are only for Linux/Unix. Which totally makes sense, because only like 91.76% of all computer users use Windows).
+So far I have functionality for 1 (hasContributedToday(profile_name)) and 2 (currentEulers()), and I'm finishing up the code for 3 and 4 on my computer.
+(5) is going to be tricky; I'm not sure if the requests module has the functionality to let me upload files to GitHub, and if not I'll have to find a different module for it.
+(6) is also going to be a little tricky, mostly because my local projecteuler folder is pretty disorganized. I'll probably rename the relevant non-.py files to have the name of the euler problem, which should make it pretty trivial.
+(7) is weird. I don't have an approach to this, despite quite a bit of research. Annoyingly, there are tons of Daemon implementations for Unix/Linux systems, but none that I can find (except weird built-in Windows ones) for the OS that 91.76% of all computers users run. But I'm sure it's out there.
