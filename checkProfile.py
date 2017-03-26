@@ -1,7 +1,7 @@
 # Script to access my github and check whether i've
 # contributed anything today.
 #
-# Works, although there's this really weird inconsistency
+# What's here so far works, although there's this really weird inconsistency
 # where GitHub's count for my contributions changes when I'm logged out and refresh the page.
 # it also sometimes spawns an extra day square that disappears when i refresh.
 # get your shit together git.
@@ -9,6 +9,7 @@
 # But we don't care; we just want to check 0 vs >0.
 
 import requests
+import os
 
 # Takes the name of a profile on GitHub as a parameter.
 # Returns a Boolean that is
@@ -24,6 +25,28 @@ def hasContributedToday(profile_name):
 		return int(s)>0
 	except:
 		return False
+
+# returns a list of the Euler problems uploaded to my github
+# as a list of strings, where the strings are the titles
+# of the files
+def currentEulers():
+	try:
+		r = requests.get('https://github.com/jsperlingwhite/Project-Euler')
+		t = r.text
+		results = []
+		subString = 'title="euler'
+		currIndex = t.find(subString)
+		while currIndex>-1:
+			newString = ''
+			currIndex+=7
+			while t[currIndex]!='"':
+				newString = newString + t[currIndex].encode('ascii','replace')
+				currIndex+=1
+			results.append(newString)
+			currIndex = t.find(subString, currIndex)
+		return results
+	except:
+		print "currentEulers() has malfunctioned"
 
 # checks my profile.
 if __name__ == '__main__':
