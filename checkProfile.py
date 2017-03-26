@@ -17,9 +17,10 @@ import requests
 def hasContributedToday(profile_name):
 	try:
 		r = requests.get('https://github.com/'+profile_name)
-		rVal = r.text.rfind('x="-39" y="72"')
+		rVal = r.text.rfind('rect class="day"')
+		
 		# int to change from unicode to int
-		s = int(r.text[rVal + 42])
+		s = int(r.text[rVal + 81])
 		return int(s)>0
 	except:
 		return False
