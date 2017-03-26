@@ -16,10 +16,22 @@ def hasContributedToday(profile_name):
 	try:
 		r = requests.get('https://github.com/'+profile_name)
 		rVal = r.text.rfind('x="-39" y="72"')
-		s = r.text[rVal + 42]
-		return s>0
+		# int to change from unicode to int
+		s = int(r.text[rVal + 42])
+		return int(s)>0
 	except:
 		return False
+
+# debugging method. asks for raw_input and
+# prints # of contributions today
+def numContributionsToday(profile):
+	try:
+		r = requests.get('https://github.com/'+profile)
+		rVal = r.text.rfind('x="-39" y="72"')
+		s = r.text[rVal + 42]
+		return s
+	except:
+		return "Not a real profile"
 
 # checks my profile.
 if __name__ == '__main__':
