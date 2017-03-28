@@ -48,6 +48,30 @@ def currentEulers():
 	except:
 		print "currentEulers() has malfunctioned"
 
+# accesses the projecteuler directory and
+# finds the next projecteuler solution i haven't uploaded yet
+# returns the name of the chosen file (a .py file in the directory
+# that isn't on GitHub)
+# returns "!" if choices is empty (i.e. everything is already online)
+#
+# maybe it should do more work -- return all relevant files in a list?
+def getNextEuler():
+	try:
+		os.chdir('euler\\complete')
+		# all files in the folder
+		eulers = os.listdir('C:\Users\Jesse\python\euler\complete')
+		# just the .py's
+		pyFiles = [x for x in eulers if x[-2:]=='py']
+		# now take out the ones already online
+		currs = currentEulers()
+		choices = [x for x in pyFiles if x not in currs]
+		if len(choices) == 0: return "!"
+		return choices[0]
+
+	except:
+		print "something has gone wrong"
+		print "you have meddled with forces beyond your comprehension"
+
 # checks my profile.
 if __name__ == '__main__':
 	print hasContributedToday('jsperlingwhite')
