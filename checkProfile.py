@@ -72,6 +72,8 @@ def getNextEuler():
 		print "something has gone wrong"
 		print "you have meddled with forces beyond your comprehension"
 
-# checks my profile.
-if __name__ == '__main__':
+def main():
 	print hasContributedToday('jsperlingwhite')
+
+# checks my profile.
+if __name__ == '__main__': main()
