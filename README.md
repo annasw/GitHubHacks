@@ -5,12 +5,12 @@ My script will eventually do the following:
 1. Check whether I have uploaded anything to GitHub today (and if so do nothing further);
 2. Check which ProjectEuler solutions I've uploaded to my GitHub;
 3. Get a list of ProjectEuler (.py) solutions in the directory on my computer;
-4. Compare the two to get a list of solutions on my computer but not GitHub;
-5. Pick one and upload it to GitHub...
+4. Compare the two to get a list of solutions on my computer but not GitHub, and pick one;
+5. Upload it to GitHub...
 6. Preferably with whatever associated files (.txt, e.g.) it needs to work;
 7. And do all this checking once a day, whether as a Daemon (or the Windows equivalent) or through some process that executes the script once a day.
 
-So far I have functionality for 1 (hasContributedToday(profile_name)) and 2 (currentEulers()), and I'm finishing up the code for 3 and 4 on my computer.
+So far I have functionality for 1-4.
 
 (5) is going to be tricky; I'm not sure if the requests module has the functionality to let me upload files to GitHub, and if not I'll have to find a different module for it.
 
